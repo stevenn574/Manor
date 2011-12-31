@@ -23,6 +23,8 @@ gem 'heroku'
 
 gem 'devise'
 
+gem 'formtastic'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

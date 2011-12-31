@@ -1,3 +1,6 @@
 <% @chores.each do |chore| %>
-	<%= chore.id %>
+	<%= chore.user %>
+	<%= chore.action %>
 <% end %>
+
+<%= link_to "I did a chore", new_chore_path %>
