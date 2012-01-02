@@ -54,9 +54,8 @@ Manor::Application.routes.draw do
   resources :chores
   resources :chore_types
   
-  resources :home
   
-  root :to => 'home#index'
+  root :to => 'chores#index'
 
   # See how all your routes lay out with "rake routes"
 

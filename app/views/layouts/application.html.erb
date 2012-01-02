@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="header">
+		<h1>The Manor</h1>
+		<% if user_signed_in? %>
+			<div class="header-links">
+				<%= link_to "Home", root_path %>
+				<%= link_to "Chores", chores_path %>
+				<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+			</div>
+		<% end %>
+	</div>
 
 <%= yield %>
 
 </body>
 </html>
+ 
