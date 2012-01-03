@@ -8,6 +8,9 @@ class ChoreTypesController < ApplicationController
   end
   
   def create
-    @chore_type = ChoreType.create(params[:chore_type])
+    @chore_type = ChoreType.new(params[:chore_type])
+    if @chore_type.save
+      render :new
+    end
   end
 end
