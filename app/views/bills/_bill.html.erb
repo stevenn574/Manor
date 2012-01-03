@@ -1,5 +1,4 @@
 <li>
-	<b><%= bill.user %></b>
-	<%= bill %> - <%= number_to_currency bill.amount %><br/>
-	<span class="small"><%= time_ago_in_words(bill.created_at) %> ago</span>
+	You owe <%= bill.user %> <%= number_to_currency bill.amount %> for <%= bill %>. <%= link_to "Paid", bill_path(bill)%><br/>
+	<span class="small">added <%= time_ago_in_words(bill.created_at) %> ago</span>
 </li>
