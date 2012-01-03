@@ -4,4 +4,8 @@ class Payment < ActiveRecord::Base
   
   validates_presence_of :user_id, :bill_id
   
+  def paid?
+    self.paid
+  end
+  
 end

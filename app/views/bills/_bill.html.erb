@@ -1,4 +1,5 @@
 <li>
-	You owe <%= bill.user %> <%= number_to_currency bill.amount %> for <%= bill %>. <%= link_to "Paid", bill_path(bill)%><br/>
+	<%= bill.paid?(current_user) %>
+	You owe <%= bill.user %> <%= number_to_currency bill.amount %> for <%= bill %>. <%= link_to "Paid", pay_bill_path(bill), :remote => true, :method => :put%><br/>
 	<span class="small">added <%= time_ago_in_words(bill.created_at) %> ago</span>
 </li>

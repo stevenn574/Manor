@@ -53,7 +53,11 @@ Manor::Application.routes.draw do
   
   resources :chores
   resources :chore_types
-  resources :bills
+  resources :bills do
+    member do
+      put :pay
+    end
+  end
   
   
   root :to => 'chores#index'

@@ -1,7 +1,7 @@
 class BillsController < ApplicationController
   
   def index
-    @bills = current_user.bills
+    @bills = current_user.bills.includes(:payments)
   end
   
   def create
@@ -9,6 +9,14 @@ class BillsController < ApplicationController
     @bill.user = current_user
     @bill.save
     render :new
+  end
+  
+  def pay
+    #@bill = current_user.bills.find(params[:id])
+    #@bill.pay current_user
+    @payment = current_user.payments.find_by_bill_id params[:id]
+    @payment.pay
+    Rails.logger.info(@payment.inspect)
   end
   
 end
