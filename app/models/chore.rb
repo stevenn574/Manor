@@ -4,5 +4,7 @@ class Chore < ActiveRecord::Base
   validates_presence_of :chore_type, :user
   
   delegate :action, :to => :chore_type
+  
+  default_scope order('id DESC')
 
 end

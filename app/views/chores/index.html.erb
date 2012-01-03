@@ -1,6 +1,8 @@
-<ul>
-<% @chores.each do |chore| %>
-	<li><b><%= chore.user %></b> <%= chore.action %></li>
+<%= semantic_form_for Chore.new, :remote => true do |f| %>
+ <%= f.input :chore_type, :label => "I", :include_blank => "did this chore"%>
 <% end %>
+
+<ul class="chores">
+	<%= render @chores %>
 </ul>
 <%= link_to "I did a chore", new_chore_path %>
