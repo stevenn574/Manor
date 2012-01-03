@@ -1,0 +1,5 @@
+<li>
+	<b><%= bill.user %></b>
+	<%= bill %> - <%= number_to_currency bill.amount %><br/>
+	<span class="small"><%= time_ago_in_words(bill.created_at) %> ago</span>
+</li>

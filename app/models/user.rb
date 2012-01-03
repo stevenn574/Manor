@@ -5,9 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
+  
+  has_many :payments
+  has_many :bills, :through => :payments
+  
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   
-  validates_presence_of :email, :password, :name
+  validates_presence_of :email, :name
   
   def to_s
     name
