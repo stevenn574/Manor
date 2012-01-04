@@ -1,5 +1,10 @@
-<li>
+<%= content_tag_for(:li, chore) do %>
 	<b><%= chore.user %></b>
-	<%= chore.action %> - <%= chore.points %>pts<br/>
-	<span class="small"><%= time_ago_in_words(chore.created_at) %> ago | <%= link_to("delete", chore_path(chore), :method => :delete) if chore.user == current_user %></span>
-</li>
+	<%= chore.action %> - <span class="points"><%= pluralize(chore.points, 'pt') %></span><br/>
+	<%= form_for(chore, :remote => true) do |f| %>
+		<%= f.label :points%>
+		<%= f.number_field :points %>
+		<%= f.submit %>
+	<% end %>
+	<span class="small"><%= time_ago_in_words(chore.created_at) %> ago | <%= link_to("delete", chore_path(chore), :method => :delete, :remote => true) if chore.user == current_user %></span>
+<% end %>
