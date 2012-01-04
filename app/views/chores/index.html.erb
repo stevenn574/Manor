@@ -5,4 +5,8 @@
 <ul class="chores">
 	<%= render @chores %>
 </ul>
-<%= link_to "I did a chore", new_chore_path %>
+
+<h2>All Other Chores:</h2>
+<ul class="chores">
+	<%= render @old_chores %>
+</ul>

@@ -7,6 +7,7 @@ class Chore < ActiveRecord::Base
   
   scope :by_id, order('id DESC')
   scope :today, where( 'DATE(created_at) = DATE(?)', Time.now )
+  scope :not_today, where( 'DATE(created_at) < DATE(?)', Time.now )
   scope :points, sum(:points)
   
   delegate :action, :to => :chore_type  
