@@ -5,10 +5,12 @@ class Chore < ActiveRecord::Base
   
   before_create :set_points
   
-  default_scope order('id DESC')
-  scope :today, where('DATE(created_at) = DATE(?)', Time.now )
+  scope :by_id, order('id DESC')
+  scope :today, where( 'DATE(created_at) = DATE(?)', Time.now )
+  scope :points, sum(:points)
   
   delegate :action, :to => :chore_type  
+  
   def set_points
     self.points = chore_type.points
   end

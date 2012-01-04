@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
     name
   end
   
-  def self.points
-    self.chores.includes(:chore_type)
+  def points
+    self.chores.sum('points')
   end
+  
 end

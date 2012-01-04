@@ -53,6 +53,7 @@ Manor::Application.routes.draw do
   
   resources :chores
   resources :chore_types
+  resources :users
   resources :bills do
     member do
       put :pay

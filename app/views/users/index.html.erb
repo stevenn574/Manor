@@ -1,0 +1,6 @@
+<h1>Point Totals</h1>
+<ul>
+<% @users.each do |user|%>
+	<li><%= user %> has <%= pluralize(user.points, "pt") %></li>
+<% end %>
+</ul>
