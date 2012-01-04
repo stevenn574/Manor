@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   has_many :payments
   has_many :bills, :through => :payments
+  has_many :chores
   
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   
@@ -15,5 +16,9 @@ class User < ActiveRecord::Base
   
   def to_s
     name
+  end
+  
+  def self.points
+    self.chores.includes(:chore_type)
   end
 end

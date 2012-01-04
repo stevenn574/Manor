@@ -1,6 +1,6 @@
 class ChoresController < ApplicationController
   def index
-    @chores = Chore.includes(:chore_type).all
+    @chores = Chore.includes(:chore_type).today
   end
   
   def new
