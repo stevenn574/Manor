@@ -22,4 +22,15 @@ class User < ActiveRecord::Base
     self.chores.sum('points')
   end
   
+  def send_text(message)
+    @client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
+    
+    @client.account.sms.messages.create(
+      :from => '+14155992671',
+      :to => phone_number,
+      :body => message
+    )
+    
+  end
+  
 end
