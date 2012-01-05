@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     @client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
     
     @client.account.sms.messages.create(
-      :from => '+14155992671',
+      :from => '+19792562667',
       :to => phone_number,
       :body => message
     )
