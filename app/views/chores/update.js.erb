@@ -1,3 +1,3 @@
-$('#<%= dom_id(@chore) %> .points').hide().html('<%= pluralize(@chore.points, 'pt') %>').fadeIn();
+$('#<%= dom_id(@chore) %> .action').hide().html('<span class="action"><%= @chore.action %> - <%= pluralize(@chore.points, 'pt') %></span>').fadeIn();
 $('#<%= dom_id(@chore) %> .edit_chore').hide();
 $('#<%= dom_id(@chore) %> .edit_button').show();

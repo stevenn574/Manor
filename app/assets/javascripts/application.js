@@ -17,7 +17,9 @@ function initialize_edit_chores() {
 	
 	$('.edit_button').live('click', function() { 
 		$(this).next('.edit_chore').css('display', 'inline');
-		$(this).prev('.points').hide();
+		//$('.action').hide();
+		//$(this).closest('.action').hide();
+		$(this).prev('span').hide();
 		$(this).hide();
 	});
 }

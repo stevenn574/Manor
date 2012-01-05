@@ -1,6 +1,12 @@
-<p>I added bills, <%= link_to "see what you owe me", bills_path %></p>
+<p>
+	I added bills, <%= link_to "see what you owe me", bills_path %>
+</p>
+<p>
+	You can also edit each chore to be more custom, try it by clicking edit.<br/>
+	You can still <%= link_to "add default chore types", new_chore_type_path %> to the dropdown.
+</p>
 <%= semantic_form_for Chore.new, :remote => true do |f| %>
- <%= f.input :chore_type, :label => "I", :include_blank => "did this chore"%>
+ <%= f.input :chore_type, :label => "Hey motha fuckas, I ", :include_blank => "did this chore", :required => false %>
 <% end %>
 <h2>Today's Chores:</h2>
 <ul class="chores" id="todays_chores">
