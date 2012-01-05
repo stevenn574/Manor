@@ -1,5 +1,6 @@
 <% if @chore.new_record? %>
 	$('#chore_chore_type_input label').css('color', 'red');
 <% else %>
-	$('#todays_chores').prepend("<%= escape_javascript(render @chore) %>").hide().fadeIn();
+	$('#todays_chores').prepend("<%= escape_javascript(render @chore) %>");
+	$('#<%= dom_id(@chore) %>').hide().slideDown();
 <% end%>

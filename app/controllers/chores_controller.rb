@@ -11,14 +11,8 @@ class ChoresController < ApplicationController
   def create
     @chore = Chore.new(params[:chore])
     @chore.user = current_user
+    @chore.save
     respond_to do |format|
-      format.html do
-        if @chore.save 
-          render :index
-        else
-          render :new
-        end
-      end
       format.js
     end
   end
