@@ -29,4 +29,7 @@ Manor::Application.configure do
   config.assets.debug = true
   
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  ACCOUNT_SID = 'AC07ddc6cd7a67407db8e93d77c85c786e'
+  AUTH_TOKEN = 'ff8bbed63c323d37b7354d8fe99035bc'
 end

@@ -21,6 +21,7 @@ end
 gem 'jquery-rails'
 
 gem 'heroku'
+gem 'twilio-ruby'
 
 gem 'devise'
 
