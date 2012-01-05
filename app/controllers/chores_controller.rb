@@ -11,11 +11,13 @@ class ChoresController < ApplicationController
   def create
     @chore = Chore.new(params[:chore])
     @chore.user = current_user
-    return unless @chore.save
-    @chores = todays_chores
     respond_to do |format|
       format.html do
-        render :index
+        if @chore.save 
+          render :index
+        else
+          render :new
+        end
       end
       format.js
     end
@@ -23,20 +25,11 @@ class ChoresController < ApplicationController
   def update
     @chore = Chore.find(params[:id])
     @chore.update_attributes(params[:chore])
-    respond_to do |format|
-      format.js
-    end
   end
   
   def destroy
     @chore = Chore.find(params[:id])
     @chore.destroy if @chore.user == current_user
-    respond_to do |format|
-      format.html do
-        redirect_to chores_url
-      end
-      format.js
-    end
   end
   
   private

@@ -1,1 +1,5 @@
-$('.chores').hide().html("<%= escape_javascript(render(@chores))%>").fadeIn();
+<% if @chore.new_record? %>
+	$('#chore_chore_type_input label').css('color', 'red');
+<% else %>
+	$('#todays_chores').prepend("<%= escape_javascript(render @chore) %>").hide().fadeIn();
+<% end%>

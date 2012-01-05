@@ -2,7 +2,7 @@ class Chore < ActiveRecord::Base
   belongs_to :chore_type
   belongs_to :user
   validates_presence_of :chore_type, :user
-  
+    
   before_create :set_points
   
   scope :by_id, order('id DESC')

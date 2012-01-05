@@ -2,7 +2,7 @@
  <%= f.input :chore_type, :label => "I", :include_blank => "did this chore"%>
 <% end %>
 <h2>Today's Chores:</h2>
-<ul class="chores">
+<ul class="chores" id="todays_chores">
 	<%= render @chores %>
 </ul>
 
