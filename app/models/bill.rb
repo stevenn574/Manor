@@ -7,12 +7,13 @@ class Bill < ActiveRecord::Base
   
   attr_accessible :name, :description, :amount, :user_id
   
+  scope :by_newest, order('id DESC')
   scope :outstanding, joins(:payments).where("payments.paid = ?", false)
 
-  def paid?(user)
-    @payment = Payment.where('user_id = ? AND bill_id = ?', user.id, id)
-    @payment.paid?
-  end
+  #def paid?(user)
+  #  @payment = Payment.where('user_id = ? AND bill_id = ?', user.id, id)
+  #  @payment.paid?
+  #end
   
   def to_s
     "#{name}"

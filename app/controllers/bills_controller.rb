@@ -1,7 +1,7 @@
 class BillsController < ApplicationController
   
   def index
-    @bills = current_user.bills.includes(:payments)
+    @bills = Bill.by_newest #current_user.bills.includes(:payments)
   end
   
   def create

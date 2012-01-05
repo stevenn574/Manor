@@ -1,9 +1,14 @@
+<p>I added bills, <%= link_to "see what you owe me", bills_path %></p>
 <%= semantic_form_for Chore.new, :remote => true do |f| %>
  <%= f.input :chore_type, :label => "I", :include_blank => "did this chore"%>
 <% end %>
 <h2>Today's Chores:</h2>
 <ul class="chores" id="todays_chores">
-	<%= render @chores %>
+	<% if @chores.present? %>
+		<%= render @chores %>
+	<% else %>
+		<p>No chores today. Be a hero!</p>
+	<% end %>
 </ul>
 
 <h2>All Other Chores:</h2>

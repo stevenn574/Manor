@@ -15,11 +15,8 @@ $(document).ready(function() {
 function initialize_edit_chores() {
 	$('#chore_chore_type_id').on('change', function() { $('#new_chore').submit(); });	
 	
-	$('.edit_button').on('click', function() { 
-		//var chore = $(this).closest('.chore')
-		//$(this).closest('.points').hide();
-		$(this).next('.edit_chore').css('display', 'inline'); 
-		//$(this).next('.edit_chore').show(); 
+	$('.edit_button').live('click', function() { 
+		$(this).next('.edit_chore').css('display', 'inline');
 		$(this).prev('.points').hide();
 		$(this).hide();
 	});

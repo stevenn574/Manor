@@ -1,7 +1,7 @@
 class ChoresController < ApplicationController
   def index
     @chores = todays_chores
-    @old_chores = Chore.includes(:chore_type).not_today.by_id
+    @old_chores = Chore.includes(:chore_type).not_today.by_newest
   end
   
   def new
@@ -29,6 +29,6 @@ class ChoresController < ApplicationController
   private
   
   def todays_chores
-    Chore.includes(:chore_type).today.by_id
+    Chore.includes(:chore_type).today.by_newest
   end
 end

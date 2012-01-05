@@ -5,7 +5,7 @@ class Chore < ActiveRecord::Base
     
   before_create :set_points
   
-  scope :by_id, order('id DESC')
+  scope :by_newest, order('id DESC')
   scope :today, where( 'DATE(created_at) = DATE(?)', Time.now )
   scope :not_today, where( 'DATE(created_at) < DATE(?)', Time.now )
   scope :points, sum(:points)
