@@ -18,7 +18,7 @@ class ChoresController < ApplicationController
   end
   def update
     @chore = Chore.find(params[:id])
-    @chore.update_attributes(params[:chore])
+    @chore.update_attributes(params[:chore]) if @chore.user == current_user
   end
   
   def destroy

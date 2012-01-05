@@ -1,7 +1,7 @@
 <%= content_tag_for(:li, chore) do %>
 	<b><%= chore.user %></b>
 	<%= chore.action %> - <span class="points"><%= pluralize(chore.points, 'pt') %></span>
-	<a href="#" class="edit_button">edit</a>
+	<%= link_to "edit", "#", :class => 'edit_button' if chore.user == current_user %>
 	<%= form_for(chore, :remote => true) do |f| %>
 		
 		<%= f.number_field :points %>
