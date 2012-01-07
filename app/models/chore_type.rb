@@ -3,6 +3,6 @@ class ChoreType < ActiveRecord::Base
   validates_presence_of :action, :points
   
   def to_s
-    "#{action} like a boss"
+    "#{action} in my pants"
   end
 end
