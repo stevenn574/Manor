@@ -3,11 +3,11 @@ class TwilioController < ApplicationController
   
   def index
     Rails.logger.info "!!!!!!!!!!!!!!!!!!! ENTERED INDEX CONTROLLER"
-    @user = User.find_by_phone_number(params[:from])
+    @user = User.find_by_phone_number(params[:From])
     Rails.logger.info "!!!!!!!!!!!!!!!!!!! TRIED TO FIND USER #{@user}"
     if @user #&& params[:AccountSid] == ACCOUNT_SID
       Rails.logger.info "!!!!!!!!!!!!!!!!!!! FOUND USER #{@user.inspect}"
-      body = params[:body]
+      body = params[:Body]
       Rails.logger.info body
       points = body.to_i
       Rails.logger.info points
