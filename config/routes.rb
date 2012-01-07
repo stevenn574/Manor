@@ -60,6 +60,7 @@ Manor::Application.routes.draw do
     end
   end
   
+  match "/twilio" => "twilio#index"
   
   root :to => 'chores#index'
 

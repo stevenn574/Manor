@@ -1,4 +1,4 @@
-<%= content_tag_for(:li, chore) do %>
+<%= content_tag_for( :li, chore, :class => cycle('even', 'odd') ) do %>
 	<b><%= chore.user %></b>
 	<span class="action"><%= chore.action %> - <%= pluralize(chore.points, 'pt') %></span>
 	<%= link_to "edit", "#", :class => 'edit_button' if chore.user == current_user %>
