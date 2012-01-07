@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
       :to => phone_number,
       :body => message
     )
-    
   end
   
 end
