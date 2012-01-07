@@ -1,7 +1,7 @@
 class Chore < ActiveRecord::Base
   belongs_to :chore_type
   belongs_to :user
-  validates_presence_of :chore_type, :user
+  validates_presence_of :points, :action, :user
     
   before_create :set_defaults
   
@@ -13,8 +13,10 @@ class Chore < ActiveRecord::Base
   #delegate :action, :to => :chore_type  
   
   def set_defaults
-    self.action = chore_type.action
-    self.points = chore_type.points
+    if chore_type
+      self.action = chore_type.action
+      self.points = chore_type.points
+    end
   end
 
 end
