@@ -3,6 +3,7 @@ class TwilioController < ApplicationController
   
   def index
     @user = User.find_by_phone_number(params[:From])
+    body = params[:Body]
     if @user && params[:AccountSid] == ACCOUNT_SID
       points = body.to_i
       action = body.split " "
