@@ -1,7 +1,7 @@
 class Chore < ActiveRecord::Base
   belongs_to :chore_type
   belongs_to :user
-  validates_presence_of :points, :action, :user
+  validates_presence_of :user
     
   before_create :set_defaults
   
