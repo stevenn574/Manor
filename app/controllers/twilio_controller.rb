@@ -3,11 +3,13 @@ class TwilioController < ApplicationController
   
   def index
     @user = User.find_by_phone_number(params[:From])
-    body = params[:Body]
-    if @user && params[:AccountSid] == ACCOUNT_SID
+    Rails.logger.info "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{@user}"
+    if @user #&& params[:AccountSid] == ACCOUNT_SID
+      body = params[:Body]
       points = body.to_i
-      action = body.split " "
-      action = action.join[1..action.length].join " "
+      message = body.split " "
+      Rails.logger.info "!!!!!!!!!!!!!!!!!!!!!!!!!!! #{message}"
+      action = message[1..message.length].join " "
       @chore = Chore.create(:action => action, :points => points, :user => @user)
     end
     render :nothing => true
