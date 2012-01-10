@@ -1,0 +1,23 @@
+<h2>New House Posts</h2>
+<ul class="posts">
+<%= render @posts %>
+</ul>
+<%= link_to "Add a post or view all", posts_path %>
+
+<%= semantic_form_for Chore.new, :remote => true do |f| %>
+ <%= f.input :chore_type, :label => "Hey motha fuckas, I ", :include_blank => "did this chore", :required => false %>
+<% end %>
+<h2>Today's Chores:</h2>
+<ul class="chores" id="todays_chores">
+	<% if @chores.present? %>
+		<%= render @chores %>
+	<% else %>
+		<p>No chores today. Be a hero!</p>
+	<% end %>
+</ul>
+
+<h2>Bills</h2>
+<ul class="bills">
+<%= render @bills %>
+</ul>
+<%= link_to "View all bills", bills_path %>

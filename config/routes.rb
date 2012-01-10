@@ -61,9 +61,10 @@ Manor::Application.routes.draw do
     end
   end
   
+  match "/home" => "home#index"
   match "/twilio" => "twilio#index"
   
-  root :to => 'chores#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

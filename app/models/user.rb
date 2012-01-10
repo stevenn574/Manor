@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
     name
   end
   
+  def new_posts
+    Post.new_since(last_sign_in_at)
+  end
+  
   def points
     self.chores.sum('points')
   end
