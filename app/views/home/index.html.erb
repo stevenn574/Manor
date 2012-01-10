@@ -1,7 +1,11 @@
 <h2>New House Posts <span class="small"><%= link_to "Add a post", new_post_path, :remote => true %></span></h2>
 <div id="new_post"></div>
 <ul class="posts">
-	<%= render @posts %>
+	<% if @posts %>
+		<%= render @posts %>
+	<% else %>
+		<li>No new posts</li>
+	<% end %>
 </ul>
 <%= link_to "Or view all posts", posts_path %>
 
