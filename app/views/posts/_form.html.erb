@@ -1,4 +1,4 @@
-<%= semantic_form_for @post, :remote => true do |f| %>
+<%= semantic_form_for @post || Post.new, :remote => true do |f| %>
 	<%= f.input :post %>
-	<%= f.submit %>
+	<%= f.submit "Post it!"%>
 <% end %> 

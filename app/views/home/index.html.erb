@@ -1,13 +1,17 @@
-<h2>New House Posts</h2>
+<h2>New House Posts <span class="small"><%= link_to "Add a post", new_post_path, :remote => true %></span></h2>
+<div id="new_post"></div>
 <ul class="posts">
-<%= render @posts %>
+	<%= render @posts %>
 </ul>
-<%= link_to "Add a post or view all", posts_path %>
+<%= link_to "Or view all", posts_path %>
 
+
+
+
+<h2>Today's Chores:</h2>
 <%= semantic_form_for Chore.new, :remote => true do |f| %>
  <%= f.input :chore_type, :label => "Hey motha fuckas, I ", :include_blank => "did this chore", :required => false %>
 <% end %>
-<h2>Today's Chores:</h2>
 <ul class="chores" id="todays_chores">
 	<% if @chores.present? %>
 		<%= render @chores %>
@@ -15,6 +19,7 @@
 		<p>No chores today. Be a hero!</p>
 	<% end %>
 </ul>
+
 
 <h2>Bills</h2>
 <ul class="bills">
