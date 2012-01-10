@@ -3,8 +3,7 @@ class TwilioController < ApplicationController
   
   def index
     @user = User.find_by_phone_number(params[:From])
-    if @user #&& params[:AccountSid] == ACCOUNT_SID
-      Rails.logger.info "!!!!!!!!!!!!!!! FOUND A USER!"
+    if @user && params[:AccountSid] == ACCOUNT_SID
       body = params[:Body]
       type = body.split(" ")[0]
       if is_number?(type)
