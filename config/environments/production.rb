@@ -61,4 +61,5 @@ Manor::Application.configure do
   ACCOUNT_SID = 'AC07ddc6cd7a67407db8e93d77c85c786e'
   AUTH_TOKEN = 'ff8bbed63c323d37b7354d8fe99035bc'
   PHONE_NUMBER = '+19792562667'
+  GA_ID = 'UA-28103293-1'
 end
