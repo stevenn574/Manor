@@ -1,0 +1,6 @@
+<% if @post.new_record? %>
+	$('#post_post_input label').css('color', 'red');
+<% else %>
+	$('.posts').prepend("<%= escape_javascript(render @post) %>");
+	$('#<%= dom_id(@post) %>').hide().slideDown();
+<% end%>

@@ -1,0 +1,4 @@
+<%= content_tag_for( :li, post, :class => cycle('even', 'odd') ) do %>
+	<%= post %><br/>
+	<span class="small">added <%= time_ago_in_words(post.created_at) %> ago by <%= post.user%> |  <%= link_to("delete", post_path(post), :method => :delete, :remote => true) if post.user == current_user %></span>
+<% end %>
