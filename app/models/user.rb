@@ -14,8 +14,15 @@ class User < ActiveRecord::Base
   
   validates_presence_of :email, :name
   
+  
+  scope :no_chores_for
+  
   def to_s
     name
+  end
+  
+  def notify_no_chores
+    
   end
   
   def new_posts

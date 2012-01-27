@@ -22,6 +22,7 @@ gem 'jquery-rails'
 
 gem 'heroku'
 gem 'twilio-ruby'
+gem 'whenever', :require => false
 
 gem 'devise'
 
